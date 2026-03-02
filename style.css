@@ -1,0 +1,16 @@
+.header-nav ul li a.active {
+  color: gold;
+  border-bottom: 2px solid gold;
+}
+
+
+.animate-slide {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.7s ease;
+}
+
+.animate-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
