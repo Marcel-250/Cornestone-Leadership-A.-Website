@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Council | Cornerstone Leadership Academy</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    padding-top:200px;
+    background:#f4f6f9;
+    box-sizing:border-box;
+}
+
+.main-header{
+    width:100%;
+    background:#0b1f3a;
+    color:white;
+    padding:15px 50px 0 50px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+.header-top{
+    display:grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items:center;
+    justify-items:center;
+    padding:10px 0;
+}
+
+.header-top h1{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    text-align:center;
+    margin:0;
+}
+
+.logo-left, .logo-right{
+    height:80px;
+    width:auto;
+}
+
+.header-nav{
+    width:100%;
+    background:#0b1f3a;
+    box-shadow:0 4px 6px rgba(0,0,0,0.15);
+}
+
+.header-nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:10px 0;
+    margin:0;
+}
+
+.header-nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    padding:6px 10px;
+    transition:0.3s;
+}
+
+.header-nav ul li a:hover{
+    color:gold;
+    border-bottom:2px solid gold;
+}
+
+/* HERO */
+.hero{
+    height:50vh;
+    background:#0b1f3a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    flex-direction:column;
+}
+
+.hero h2{
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+}
+
+/* SECTIONS */
+section{
+    padding:80px 20px;
+}
+
+/* SECTION TITLES */
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h3{
+    font-size:32px;
+    font-family:'Playfair Display', serif;
+    color:#0b1f3a;
+}
+
+/* LEADER CARDS */
+.leader-card{
+    background:white;
+    margin:20px auto;
+    max-width:800px;
+    border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    overflow:hidden;
+}
+
+.leader-header{
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    background:#0b1f3a;
+    color:white;
+    transition:0.3s;
+}
+
+.leader-header:hover{
+    background:#132e55;
+}
+
+.leader-info{
+    padding:20px;
+    background:white;
+    color:#0b1f3a;
+}
+
+/* MINISTRY CARDS */
+.ministry-card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+    margin:20px auto;
+    max-width:800px;
+}
+
+.ministry-card h4{
+    color:#0b1f3a;
+    font-family:'Playfair Display', serif;
+    margin-bottom:10px;
+}
+
+.ministry-card p{
+    line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+    background:#0b1f3a;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero h2{
+        font-size:28px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="header-top">
+    <img src="https://cornerstoneschoolsafrica.org/images/logostone5.gif" alt="Left Logo" class="logo-left">
+    <h1>Cornerstone Leadership Academy</h1>
+    <img src="https://cornerstoneschoolsafrica.org/images/demo/CLA_Rwanda_logo_color.gif" alt="Right Logo" class="logo-right">
+  </div>
+  <nav class="header-nav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#commitment-areas">About Us</a></li>
+      <li><a href="requirements.html">Requirements</a></li>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="extracurricular.html">Extracurricular Activities</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>School Council</h2>
+</section>
+
+<!-- HEADS OF SCHOOL COUNCIL -->
+<section>
+    <div class="section-title">
+        <h3>Heads of School Council</h3>
+    </div>
+
+    <div class="leader-card">
+        <div class="leader-header">
+            <h3>Chairman</h3>
+        </div>
+        <div class="leader-info">
+            <p><strong>Name:</strong> MUGABE RWIGEMA Robert</p>
+            <p><strong>Responsibilities:</strong> The chairman is responsible for leading the school council and supervising all othe ministries
+            in the school. The chairman also serves as the represantative of the students to the staff, and represents the students in the school
+            staff during decision making./p>
+        </div>
+    </div>
+
+    <div class="leader-card">
+        <div class="leader-header">
+            <h3>Chairperson</h3>
+        </div>
+        <div class="leader-info">
+            <p><strong>Name:</strong> KOBUSINGYE Violet</p>
+            <p><strong>Responsibilities:</strong> Assists the chairman in coordinating the school and ensuring the school momentum</p>
+        </div>
+    </div>
+</section>
+
+<!-- MINISTRIES -->
+<section>
+    <div class="section-title">
+        <h3>School Council Ministries & Duties</h3>
+    </div>
+
+    <!-- Academic Ministry -->
+    <div class="ministry-card">
+        <h3>Academic Ministry</h3>
+    
+        <p>Oversees academic guidance for students, organizes tutoring sessions and study support, ensures students maintain high academic standards.
+            The academuc ministry help students to access learning resources like computers, library, and other learning materials. They also 
+            organize academic competitions and events to promote a culture of learning and excellence among students. The ministry also seek
+            opportinities for students to develop their skills and talents.
+        </p>
+    </div>
+
+    <!-- Health Ministry -->
+    <div class="ministry-card">
+        <h4>Health Ministry</h4>
+        <p>Promotes student wellness and hygiene, organizes health</p>
+    </div>
+
+    <!-- Welfare Ministry -->
+    <div class="ministry-card">
+        <h4>Welfare Ministry</h4>
+        <p>Ensures student welfare and support, manages care groups, provides assistance to students in need.</p>
+    </div>
+
+    <!-- Sport Ministry -->
+    <div class="ministry-card">
+        <h4>Sport Ministry</h4>
+        <p>Organizes sports events and competitions, encourages physical fitness and healthy activities, coordinates training for school teams.</p>
+    </div>
+
+    <!-- Entertainment Ministry -->
+    <div class="ministry-card">
+        <h4>Entertainment Ministry</h4>
+        <p>Manages cultural and talent events, organizes student entertainment activities, promotes arts and creativity among students.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Leadership Practice Team | Cornerstone Leadership Academy
+</footer>
+
+</body>
+</html>
