@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cornerstone Leadership Academy | Official Portal</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL STYLES */
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    padding-top:200px; /* Space for fixed header + nav */
+    background:#f4f6f9;
+    overflow-x:hidden;
+}
+
+/* HEADER & NAVIGATION */
+.main-header{
+    width:100%;
+    background:#0b1f3a;
+    color:white;
+    padding:15px 50px 0 50px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+.header-top{
+    display:grid;
+    grid-template-columns: 100px 1fr 100px; 
+    align-items:center;
+    justify-items:center;
+    padding:10px 0;
+}
+
+.header-top h1{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    text-align:center;
+    margin:0;
+}
+
+.logo-left, .logo-right{
+    height:80px;
+    width:auto;
+}
+
+.header-nav{
+    width:100%;
+    background:#0b1f3a;
+    box-shadow:0 4px 6px rgba(0,0,0,0.15);
+}
+
+.header-nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:10px 0;
+    margin:0;
+}
+
+.header-nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    padding:6px 10px;
+    transition:0.3s;
+}
+
+.header-nav ul li a:hover{
+    color:gold;
+    border-bottom:2px solid gold;
+}
+
+/* HERO SECTION */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
+    url('https://cornerstoneschoolsafrica.org/images/CLA_rw_pic5.jpg') center/cover no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+    opacity:0;
+    transform: translateY(50px);
+    transition: all 1.2s ease-out;
+}
+
+.hero h2{
+    font-family:'Playfair Display', serif;
+    font-size:48px;
+    margin-bottom:20px;
+    opacity:0;
+    transform: scale(0.9) translateY(30px);
+}
+
+.hero p{
+    max-width:750px;
+    margin:auto;
+    margin-bottom:30px;
+    font-size:18px;
+    opacity:0;
+    transform: scale(0.9) translateY(30px);
+}
+
+.btn{
+    padding:12px 30px;
+    background:gold;
+    color:#0b1f3a;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:4px;
+    transition: all 0.4s ease;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+.btn:hover{
+    transform: scale(1.08) rotateZ(1deg);
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* SECTIONS */
+section{
+    padding:100px 20px;
+    opacity:0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* SECTION TITLES */
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h3{
+    font-size:32px;
+    font-family:'Playfair Display', serif;
+    color:#0b1f3a;
+}
+
+/* ABOUT */
+.about{
+    background:white;
+    text-align:center;
+}
+
+.about p{
+    max-width:100%; 
+    margin:auto;
+    line-height:1.7;
+    padding:0 10px; 
+}
+
+/* STUDENTS DEPARTMENTS */
+.department-bar{
+    display:block;
+    width:80%;
+    margin:25px auto;
+    padding:35px 40px;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    box-shadow:0 6px 25px rgba(0,0,0,0.25);
+    opacity:0;
+    transform: translateX(-150px) rotateY(-15deg);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.department-bar h4{
+    font-family:'Playfair Display', serif;
+    font-size:24px;
+    margin-bottom:10px;
+}
+.department-bar p{
+    font-size:16px;
+    line-height:1.5;
+}
+.department-bar:hover{
+    transform: translateY(0) scale(1.05) rotateY(0deg);
+    box-shadow:0 12px 40px rgba(0,0,0,0.35);
+    background:gold !important;
+    color:#0b1f3a !important;
+}
+
+/* LEADER CARDS */
+.leader-card{
+    background:white;
+    margin:20px auto;
+    max-width:800px;
+    border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    overflow:hidden;
+    transform: translateY(50px) rotateX(5deg);
+    transition: all 0.7s ease;
+}
+.leader-card:hover{
+    transform: translateY(0) rotateX(0deg) scale(1.02);
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+.leader-header{
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    background:#0b1f3a;
+    color:white;
+    transition:0.3s;
+}
+.leader-header:hover{
+    background:#132e55;
+}
+.leader-info{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.5s ease;
+    padding:0 20px;
+    background:white;
+}
+.leader-info p{
+    margin:15px 0;
+}
+
+/* Chairman card linking to another page */
+.chairman-card{
+    background:white;
+    margin:20px auto;
+    max-width:800px;
+    border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    overflow:hidden;
+    text-align:center;
+}
+.chairman-card a{
+    display:block;
+    padding:20px;
+    text-decoration:none;
+    color:#0b1f3a;
+    font-weight:600;
+    background:#f0f0f0;
+    transition:0.3s;
+    border-radius:6px;
+}
+.chairman-card a:hover{
+    background:gold;
+    color:white;
+}
+
+/* CONTACT / EXTRACURRICULAR */
+#extracurricular p{
+    text-align:center;
+}
+
+/* FOOTER */
+footer{
+    background:#0b1f3a;
+    color:white;
+    padding:60px 20px 20px 20px;
+    font-family:'Poppins', sans-serif;
+    opacity:0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+.footer-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    max-width:1200px;
+    margin:auto;
+    gap:40px;
+}
+.footer-column{
+    flex:1;
+    min-width:250px;
+}
+.footer-column h4{
+    font-family:'Playfair Display', serif;
+    font-size:20px;
+    margin-bottom:15px;
+    color:gold;
+}
+.footer-column p, .footer-column ul, .footer-column a{
+    font-size:14px;
+    line-height:1.6;
+    color:white;
+    text-decoration:none;
+}
+.footer-column ul{
+    list-style:none;
+    padding:0;
+}
+.footer-column ul li{
+    margin-bottom:8px;
+}
+.footer-column ul li a:hover{
+    color:gold;
+}
+/* Contact Form */
+#contact-form input, #contact-form textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:4px;
+    border:none;
+}
+#contact-form button{
+    background:gold;
+    color:#0b1f3a;
+    border:none;
+    padding:10px 15px;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+#contact-form button:hover{
+    background:white;
+}
+.social-icons{
+    display:flex;
+    gap: 10px;
+    margin-top:10px;
+}
+.social-icon{
+    width:28px;
+    height:28px;
+    transition:0.3s;
+}
+.social-icon:hover{
+    transform:scale(1.2);
+}
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    font-size:13px;
+    color:#ccc;
+    border-top:1px solid rgba(255,255,255,0.2);
+    padding-top:15px;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width:900px){
+    .header-top{
+        grid-template-columns: 60px 1fr 60px;
+    }
+    .header-top h1{
+        font-size:24px;
+    }
+    .logo-left, .logo-right{
+        height:60px;
+    }
+    .header-nav ul{
+        gap:20px;
+    }
+    .department-bar{
+        width:90%;
+        padding:25px 20px;
+    }
+    .hero h2{
+        font-size:36px;
+    }
+    .hero p{
+        font-size:16px;
+    }
+}
+
+/* MINISTRY CARDS */
+.paragraphs {
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+    margin:20px auto;
+    max-width:800px;
+}
+
+.paragraphs h4{
+    color:#0b1f3a;
+    font-family:'Playfair Display', serif;
+    margin-bottom:10px;
+}
+
+.paragraphs{
+    line-height:1.6;
+}
+
+/* TEACHER CARDS */
+.teacher-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    max-width: 280px;
+    margin: 20px auto;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(60px) rotateY(-10deg);
+    animation: slideUp 0.6s ease forwards;
+}
+
+.teacher-card:nth-child(1) { animation-delay: 0.1s; }
+.teacher-card:nth-child(2) { animation-delay: 0.2s; }
+.teacher-card:nth-child(3) { animation-delay: 0.3s; }
+.teacher-card:nth-child(4) { animation-delay: 0.4s; }
+.teacher-card:nth-child(5) { animation-delay: 0.5s; }
+.teacher-card:nth-child(6) { animation-delay: 0.6s; }
+.teacher-card:nth-child(7) { animation-delay: 0.7s; }
+.teacher-card:nth-child(8) { animation-delay: 0.8s; }
+.teacher-card:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateY(0deg);
+    }
+}
+
+.teacher-card:hover {
+    transform: translateY(-12px) rotateY(5deg) scale(1.05);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.teacher-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.teacher-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teacher-details {
+    padding: 20px;
+}
+
+.teacher-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #0b1f3a;
+    margin: 0 0 8px 0;
+}
+
+.teacher-subject {
+    color: #d4af37;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+}
+
+.teacher-qualification,
+.teacher-experience,
+.teacher-bio {
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.teacher-contact {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #0b1f3a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.teacher-contact:hover {
+    background: #d4af37;
+    color: #0b1f3a;
+}
+
+/* TEACHER GRID */
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="header-top">
+    <img src="https://cornerstoneschoolsafrica.org/images/logostone5.gif" alt="Left Logo" class="logo-left">
+    <h1>Cornerstone Leadership Academy</h1>
+    <img src="https://cornerstoneschoolsafrica.org/images/demo/CLA_Rwanda_logo_color.gif" alt="Right Logo" class="logo-right">
+  </div>
+  <nav class="header-nav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#commitment-areas">About Us</a></li>
+      <li><a href="requirements.html">Requirements</a></li>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="extracurricular.html">Extracurricular Activities</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h2>Welcome to Cornerstone Leadership Academy Rwanda</h2>
+  <p>Advancing structured leadership, governance excellence, and disciplined student engagement within a formal institutional framework.</p>
+  <a href="#about" class="btn">Discover More</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2 style="  margin-bottom: 1px;">Vision</h2>
+    <p style="text-align: center; font-style: italic;">"We seek to create a life transforming learning environment that will mold young men and women into future leaders for Rwanda... men and women whose lives fully reflect the
+         character qualities and leadership principles embodied in the life of Jesus."</p><br>
+    <h2 style="  margin-bottom: 1px;">Mission</h2>
+    <p style="text-align: center; font-style: italic;">"To build visionary Leaders through integrity and excellence."</p><br>
+<h2 style="margin-bottom: 1px;">Goal</h2>
+    <p style="text-align: center; font-style: italic;">"To mold young men and women into people who are physically, mentally, socially, and spiritually fit to 
+        gear up the transformation process in the society."</p>
+<br><br><br>
+<section id="commitment-areas">
+    <div class="section-title"><h3>Key commitment areas</h3></div>
+    <p>
+        <ul style="text-align: left; max-width: 600px; margin: auto; line-height: 1.8;">
+            <li>Discipleship and character development</li>
+            <li>Servant Leadership mentoring</li>
+            <li>Unity across diversity</li>
+            <li>Academic excellence through hard work and continuous improvement</li>
+            <li>priority on long term relationships</li>
+        </ul>
+</p>
+</section>
+
+<section id="core-values">
+<div class="section-title"><h3>Core Values</h3></div>
+<p>
+    <ul style="text-align: left; max-width: 600px; margin: auto; line-height: 1.8;">
+        <li>Being Jesus-Christ centered</li>
+        <li>Integrity</li>
+        <li>Stewardship</li>
+        <li>Forgiveness and reconciliation</li>
+        <li>Appreciating diversity</li>
+        <li>Love and care</li>
+        <li>Respect and humility</li>
+        <li>Responsibility</li>
+    </ul>
+</p>
+</section>
+<br><br>
+<section>
+<div class="section-title"><h3>Meet our staff members</h3></div>
+<div class="teacher-grid">
+<div class="teacher-card" style="sh">
+    <div class="teacher-image">
+        <img src="https://pbs.twimg.com/profile_images/1398658913642369027/luYzLnEU_400x400.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">NKOTANYI Peter</h4>
+        <p class="teacher-subject"><b>The Headmaster of the school</b></p>
+        <p class="teacher-bio">He is not only the headmaster but the friend of the students</p>
+        <p>Tel: +250 788 123 456</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact on email</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">Aggy Asiimwe</h4>
+        <p class="teacher-subject">The teacher of Literature in Art classes (HLP&HGL) and Stream of Arts and Humanities</p>
+        <p class="teacher-experience"><strong>Experience:</strong> X years</p>
+        <p class="teacher-bio">Brief description of expertise and teaching philosophy.</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">MBARUSHIMANA Joseph</h4>
+        <p class="teacher-subject">Teacher of Entrepreneurship and ICT</p>
+        <p class="teacher-bio">He is a skilled and professional teacher of entrepreneurship and ICT
+            (Information and Communication Technology) in all classes
+        </p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">KOMUGISHA Marion Comfort</h4>
+        <p class="teacher-subject">Teacher of History and Citizenship</p>
+        <p class="teacher-bio">She is a dedicated and experienced teacher of History and Citizenship in all classes.</p>
+        <p>Tel: +250 788 123 456</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">SEMWAGA Christophe</h4>
+        <p class="teacher-subject">Teacher of Biology and Health Sciences</p>
+        <p class="teacher-bio">He is a skilled and professional teacher of Biology and Health Sciences in all classes.</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card" class="#about us">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">NYAKATO Beatrice</h4>
+        <p class="teacher-subject">Teacher of General Studies and Communication skills</p>
+        <p class="teacher-bio">She is a dedicated and experienced teacher of General Studies and Communication skills in all classes.</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">ASHIMWE Janvier</h4>
+        <p class="teacher-subject">Teacher of English</p>
+        <p class="teacher-bio">He is a skilled and professional teacher of English in all classes.</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">Ronald MUKASA</h4>
+        <p class="teacher-subject">Teacher of Psychology and the Dean of Studies</p>
+        <p class="teacher-bio">He is a dedicated and experienced teacher of Psychology and the Dean of Studies in all classes.</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+
+<div class="teacher-card">
+    <div class="teacher-image">
+        <img src="path-to-teacher-image.jpg" alt="Teacher Name">
+    </div>
+    <div class="teacher-details">
+        <h4 class="teacher-name">agyy assimwe</h4>
+        <p class="teacher-subject">Subject/Department</p>
+        <p class="teacher-qualification"><strong>Qualification:</strong> Bachelor's Degree</p>
+        <p class="teacher-experience"><strong>Experience:</strong> X years</p>
+        <p class="teacher-bio">Brief description of expertise and teaching philosophy.</p>
+        <a href="mailto:email@school.com" class="teacher-contact">Contact</a>
+    </div>
+</div>
+</div>
+   
+</section>
+
+
+
+<!-- STUDENTS DEPARTMENTS -->
+<section id="departments">
+  <div class="section-title"><h3>Students' Departments</h3></div>
+
+  <a href="school-council.html" class="department-bar animate-slide" style="background:#132e55;">
+      <h4>School Council</h4>
+      <p>Oversees student governance, supervises ministries, ensures student leadership excellence.</p>
+  </a>
+
+  <a href="leadership-team.html" class="department-bar animate-slide" style="background:#0b1f3a;">
+      <h4>Leadership Practice Team</h4>
+      <p>Organizes debates, public speaking sessions, morning fellowships, and MUN to train future leaders.</p>
+  </a>
+
+  <a href="church-departments.html" class="department-bar animate-slide" style="background:#1a3a66;">
+      <h4>Church Ministry</h4>
+      <p>Includes Mass Choir, Intercession Group, and Evangelism Team, fostering spiritual growth.</p>
+  </a>
+
+  <a href="caregroups.html" class="department-bar animate-slide" style="background:#0d2640;">
+      <h4>Caregroups</h4>
+      <p>Supports student welfare, mentorship, and personal development.</p>
+  </a>
+</section>
+
+<!-- EXTRACURRICULAR -->
+<section id="extracurricular">
+    <div class="section-title"><h3>Contact us</h3>
+    <p>Email: clarwandadmission@gmail.com<br>Cornerstone Leadership Academy<br>
+    Tel:+250 788 542 423<br>
+    <i style="margin-bottom: 0px;">Rwamagana, Musha</i>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <address>
+        <div class="footer-column">
+      <h4>Address</h4>
+        Republic of Rwanda<br>
+        Rwamagana district<br>
+        Musha sector<br>
+        P.O. Box 3793 Kigali, Rwanda<br>
+      </address>
+    </div>
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#commitment-areas">About Us</a></li>
+        <li><a href="requirements.html">Requirements</a></li>
+        <li><a href="#departments">Departments</a></li>
+        <li><a href="#extracurricular">Extracurricular</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contact Us</h4>
+      <form id="contact-form" action="mailto:leadershipteam@institution.org" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/cla_rwanda?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="social-icon">
+        </a>
+      </div>
+      <p style="margin-top:15px;">
+        Email:<ul>
+
+        </li>  <li><a href="mailto:clarwandadmission@gmail.com">clarwandadmission@gmail.com</a></li>
+        <li><a href="mailto:CLA.Rwanda@cdafrica.org">CLA.Rwanda@cdafrica.org</a></li>
+        </ul>
+        <p>Phone: <ul margin-bottom:0;>
+             <li><a href="tel:+250785131305"><b>Headmaster:</b>+250 785 131 305</a></li>
+            <li><a href="tel:+250788542423"><b>Administrator:</b>+250 788 542 423</a></li>
+            <li style="margin-top: 0px;"><a href="tel:+250785025231"><b>Kigali office:</b>+250 785 025 231</a></li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Cornerstone Leadership Academy | Official Institutional Portal
+  </div>
+</footer>
+
+<!-- JAVASCRIPT FOR ANIMATIONS & CARDS -->
+<script>
+function toggleInfo(element){
+    let info = element.nextElementSibling;
+    if(info.style.maxHeight){
+        info.style.maxHeight = null;
+        element.querySelector("span").textContent = "+";
+        element.style.transform = "rotateX(0deg)";
+    } else {
+        info.style.maxHeight = info.scrollHeight + "px";
+        element.querySelector("span").textContent = "-";
+        element.style.transform = "rotateX(5deg) scale(1.02)";
+    }
+}
+
+// SCROLL REVEAL
+const revealElements = document.querySelectorAll(".animate-slide, .leader-card, .hero, section, footer");
+window.addEventListener("scroll", () => {
+    const windowHeight = window.innerHeight;
+    revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < windowHeight - 100){
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0) translateX(0) rotate(0deg) scale(1)";
+        }
+    });
+});
+
+// HERO ZOOM IN ON LOAD
+window.addEventListener("load", () => {
+    const heroText = document.querySelector(".hero h2");
+    const heroPara = document.querySelector(".hero p");
+    setTimeout(()=>{ heroText.style.opacity=1; heroText.style.transform="scale(1) translateY(0)"; },200);
+    setTimeout(()=>{ heroPara.style.opacity=1; heroPara.style.transform="scale(1) translateY(0)"; },500);
+});
+
+// BUTTON HOVER
+const buttons = document.querySelectorAll(".btn, .department-bar, .chairman-card a");
+buttons.forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+        btn.style.transform = "scale(1.05) rotateZ(1deg)";
+        btn.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
+    });
+    btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "scale(1) rotateZ(0deg)";
+        btn.style.boxShadow = "0 6px 20px rgba(0,0,0,0.2)";
+    });
+});
+
+// DYNAMIC FOOTER YEAR
+const footerYear = document.querySelector(".footer-bottom");
+if(footerYear){
+    footerYear.innerHTML = `© ${new Date().getFullYear()} Cornerstone Leadership Academy | Official Institutional Portal`;
+}
+</script>
+
+</body>
+</html>
